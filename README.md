@@ -20,8 +20,7 @@ This is a basic example which reshapes data (wide-form) for conjiont analysis. T
 
 ``` r
 library(cjdata)
-load(exampleData)
-outcomes <- str_c("Q2.", seq(from = 4, to = 31, by = 3))
+outcomes <- paste0("Q2.", seq(from = 4, to = 31, by = 3))
 df_conjiont <- reshape_conjoint(exampleData, V1, outcomes)
 ```
 
