@@ -63,7 +63,7 @@ reshape_conjoint <- function(.data, .idvar, .outcomes, .alphabet = "F"){
 
   # Make a small data frame to assign "Task" number
   df_outcomes <- data.frame(outcome_qnum = .outcomes,
-                            task = seq(from = 1, to = length(.outcomes), by = 1))
+                            task = 1:n_tasks)
 
   # Responses
   choice <- df %>%
