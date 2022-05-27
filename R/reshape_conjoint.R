@@ -6,10 +6,10 @@
 #' @import tidyr
 #' @import stringr
 #' @param .data A data frame, preferably from \dQuote{read_Qualtrics()}
-#' @param .idvar A character identifying the column name containing respondent IDs
+#' @param .idvar A variable (unquoted) identifying the column name containing respondent IDs
 #' @param .outcomes A character vector identifying the column names that contain outcomes
 #' @param .alphabet The letter indicating conjoint attributes. If using Strezhnev's package (https://github.com/astrezhnev/conjointsdt) in Qualtrics, the default is "F".
-#' @return A conjoint task-level data frame (in other words, in long format) ready for conjoint analysis. See \dQuote{pj}.
+#' @return A conjoint task-level data frame (in other words, in long format) ready for conjoint analysis.
 #' @export
 #'
 reshape_conjoint <- function(.data, .idvar, .outcomes, .alphabet = "F"){

@@ -9,14 +9,14 @@ reshape_conjoint(.data, .idvar, .outcomes, .alphabet = "F")
 \arguments{
 \item{.data}{A data frame, preferably from \dQuote{read_Qualtrics()}}
 
-\item{.idvar}{A character identifying the column name containing respondent IDs}
+\item{.idvar}{A variable (unquoted) identifying the column name containing respondent IDs}
 
 \item{.outcomes}{A character vector identifying the column names that contain outcomes}
 
 \item{.alphabet}{The letter indicating conjoint attributes. If using Strezhnev's package (https://github.com/astrezhnev/conjointsdt) in Qualtrics, the default is "F".}
 }
 \value{
-A conjoint task-level data frame (in other words, in long format) ready for conjoint analysis. See \dQuote{pj}.
+A conjoint task-level data frame (in other words, in long format) ready for conjoint analysis.
 }
 \description{
 This function takes a data frame, preferably from \dQuote{read_Qualtrics()}, and reshapes it from wide to long such that each row is a distinct conjoint task rather than a respondent.

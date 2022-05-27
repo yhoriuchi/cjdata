@@ -14,7 +14,7 @@ A data frame with 678 rows and 428 variables:
 exampleData
 }
 \description{
-It reshapes Qualtrics data (in a wide format) for conjoint analysis,
-    which requires data in a long format
+It reshapes Qualtrics data (in wide format) for conjoint analysis,
+    which requires data in long format
 }
 \keyword{datasets}
