@@ -16,7 +16,7 @@ devtools::install_github("yhoriuchi/cjdata")
 
 ## Example
 
-This is a basic example which reshape data for conjiont analysis. The original data set is from *Campus Diversity: The Hidden Conseus* by John Carey, Katie Clayton, and Yusaku Horiuchi (Cambridge University Press, 2020). The complete replication package is available at https://doi.org/10.7910/DVN/KMS5ZY. For more information about the book, see: https://horiuchi.org/diversity/.
+This is a basic example which reshapes data (wide-form) for conjiont analysis. The original data set is from *Campus Diversity: The Hidden Conseus* by John Carey, Katie Clayton, and Yusaku Horiuchi (Cambridge University Press, 2020). The complete replication package is available at https://doi.org/10.7910/DVN/KMS5ZY. For more information about the book, see: https://horiuchi.org/diversity/.
 
 ``` r
 library(cjdata)
