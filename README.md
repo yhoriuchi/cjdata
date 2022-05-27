@@ -5,8 +5,6 @@
 
 **cjdata** is a very small package to read a CSV file from Qualtrics and reshape the data for conjoint analysis. The current version only supports analysis for a binary-choice outcome. Users should wrangle respondent-level data separately and merge them by each respondent's id. 
 
-Website: https://yhoriuchi.github.io/cjdata/
-
 ## Installation
 
 You can install the development version of cjdata from [GitHub](https://github.com/) with:
