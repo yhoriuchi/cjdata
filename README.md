@@ -21,7 +21,7 @@ This is a basic example which reshapes data (wide-form) for conjiont analysis. T
 ``` r
 library(cjdata)
 outcomes <- paste0("Q2.", seq(from = 4, to = 31, by = 3))
-df_conjiont <- reshape_conjoint(exampleData, V1, outcomes)
+cjdata <- reshape_conjoint(exampleData, V1, outcomes)
 ```
 
 To read the original Qualtrics data (with two rows being used for information about each column), use another function in this package, <code>read_Qualtrics()</code>.
