@@ -1,7 +1,29 @@
+
 # cjdata
-A very small package to read a CSV file from Qualtrics and reshape the data for conjoint analysis. The current version only supports analysis for a binary-choice outcome. Users should wrangle respondent-level separately and merge them by each respondent's id. 
 
+<!-- badges: start -->
+<!-- badges: end -->
 
-### Notes:
+cjdata is a very small package to read a CSV file from Qualtrics and reshape the data for conjoint analysis. The current version only supports analysis for a binary-choice outcome. Users should wrangle respondent-level separately and merge them by each respondent's id. 
 
-- The binary profile names should be {"Something 1", "Something 2"} or ({Something A", "Something B"}.
+## Installation
+
+You can install the development version of cjdata from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("yhoriuchi/cjdata")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+``` r
+library(cjdata)
+load(exampleData)
+outcomes <- str_c("Q2.", seq(from = 4, to = 31, by = 3))
+df_conjiont <- reshape_conjoint(exampleData, V1, outcomes)
+```
+
+To read the original Qualtrics data (with two rows being used for information about each column), use another function in this package, <code>read_Qualtrics()</code>.
