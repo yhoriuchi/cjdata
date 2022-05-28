@@ -4,14 +4,14 @@ Title: A simple package to read and reshape data for conjoint analysis
 Version: 0.1.0
 Author: Yusaku Horiuchi
 Maintainer: Yusaku Horiuchi <yusaku.horiuchi@gmail.com>
-Description: This is a small package to read a CSV file from Qualtrics,
-    and reshape it for conjoint anlaysis. The current version only 
-    supports analysis for a binary-choice outcome.
+Description: This is a small package for the first two steps necessary in conjoint analysis: 
+    read a CSV file downlodaded from Qualtrics and make a long-format data frame.
 Imports:
     readr,
     dplyr, 
     tidyr,
-    stringr
+    stringr,
+    stringi
 License: MIT + file LICENSE
 Encoding: UTF-8
 RoxygenNote: 7.1.2

@@ -5,6 +5,7 @@
 #' @import dplyr
 #' @import tidyr
 #' @import stringr
+#' @import stringi
 #' @param .data A data frame, preferably from \dQuote{read_Qualtrics()}
 #' @param .idvar A variable (unquoted) identifying the column name containing respondent IDs
 #' @param .outcomes A character vector identifying the column names that contain outcomes
@@ -23,7 +24,7 @@ reshape_conjoint <- function(.data, .idvar, .outcomes, .alphabet = "F"){
   attribute <- attribute_name <- NULL
   level <- level_name <- NULL
   outcomes <- outcome_qnum <- NULL
-  response <- selected <-  NULL
+  response <- response_original <- response_num <- selected <-  NULL
 
   idvar_quo <- enquo(.idvar)
   n_tasks <- length(.outcomes)
@@ -68,16 +69,23 @@ reshape_conjoint <- function(.data, .idvar, .outcomes, .alphabet = "F"){
   # Responses
   choice <- df %>%
     select(id, all_of(.outcomes)) %>%
-    pivot_longer(names_to = "outcome_qnum", values_to = "response", cols = 2:ncol(.)) %>%
+    pivot_longer(names_to = "outcome_qnum", values_to = "response_original", cols = 2:ncol(.)) %>%
     left_join(df_outcomes, by = "outcome_qnum") %>%
-    mutate(response = str_extract(response, "\\d") %>% as.numeric()) %>%
-    select(id, task, response)
+    select(id, task, response_original)
 
   # Attributes, Levels, and Responses
-  attribute_levels %>%
-    left_join(choice, by = c("id", "task")) %>%
-    mutate(selected = ifelse(profile == response, 1, 0)) %>%
-    select(-response) %>%
+  out <- attribute_levels %>%
+    left_join(choice, by = c("id", "task"))
+
+  # Final cleaning
+  out %>%
+    mutate(response_num = str_extract(response_original, ".$"),
+           response_num = stringi::stri_trans_nfkc(response_num), # Zenkaku to Hankaku
+           response_num = case_when(response_num %in% c("1", "A") ~ 1,
+                                    response_num %in% c("2", "B") ~ 2),
+           selected = ifelse(profile == response_num, 1, 0)) %>%
+    select(-response_original, -response_num) %>%
     return()
+
 
 }
